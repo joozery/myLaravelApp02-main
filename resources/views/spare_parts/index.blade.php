@@ -49,7 +49,7 @@
                         
                         <td>
                             <!-- แก้ไขให้ใช้ 'id' แทน 'part_id' -->
-                            <a href="{{ route('spare_parts.edit', ['id' => $sparePart->id]) }}" class="btn btn-warning btn-sm">แก้ไข</a>
+                            <a href="{{ route('spare_parts.edit', ['id' => $sparePart->part_id]) }}" class="btn btn-warning btn-sm">แก้ไข</a>
                         </td>
                     </tr>
                 @empty
