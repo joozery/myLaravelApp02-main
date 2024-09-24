@@ -4,7 +4,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon -->
+    <link rel="icon" href="{{ asset('images/logo.png') }}" type="image/png" sizes="32x32">
+
+    
     <title>Laravel 10 Custom Login and Registration - Register Page</title>
+
+    
 
     <!-- Google Fonts (Prompt) -->
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600&display=swap" rel="stylesheet">
@@ -71,7 +78,7 @@
         .login-link {
             text-align: center;
             margin-top: 10px;
-            width: 150px;
+            /* width: 150px; */
             margin-bottom: 20px;
         }
 
@@ -127,12 +134,12 @@
 
                             <!-- รหัสผ่าน -->
                             <div class="mb-3">
-                                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                                <input type="password" class="form-control" id="password" name="password" minlength="6" placeholder="Password" required>
                             </div>
 
                             <!-- ยืนยันรหัสผ่าน -->
                             <div class="mb-3">
-                                <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Confirm password" required>
+                                <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Confirm password" minlength="6" required>
                             </div>
 
                             <!-- บทบาท -->

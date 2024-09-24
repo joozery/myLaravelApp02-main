@@ -112,7 +112,7 @@
         <div class="login-welcome">
             <h2>ยินดีต้อนรับระบบอู่</h2>
             <p>คุณมีรหัสแล้วหรือยัง</p>
-            <a href="#" class="btn">สมัครสมาชิก</a>
+            <a href="{{route('register')}}" class="btn">สมัครสมาชิก</a>
         </div>
     </div>
 </body>

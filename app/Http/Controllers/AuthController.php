@@ -64,7 +64,7 @@ class AuthController extends Controller
                     case 'พนักงานคลังอะไหล่':
                         return redirect('/homep')->with('success', 'Login Success');
                     case 'เจ้าของอู่':
-                        return redirect('/hame')->with('success', 'Login Success');
+                        return redirect('/home')->with('success', 'Login Success');
                     default:
                         return back()->with('error', 'Unauthorized role');
                 }

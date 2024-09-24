@@ -4,6 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicon -->
+    <link rel="icon" href="{{ asset('images/logo.png') }}" type="image/png" sizes="32x32">
+
+
     <title>Dashboard</title>
 
     <!-- Bootstrap CSS -->
@@ -79,7 +84,7 @@
     <div class="container-fluid">
         <div class="row">
             <!-- Sidebar -->
-            <nav class="col-md-2 sidebar">
+                <nav class="col-md-2 sidebar">
                 <img src="{{ asset('images/logo.png') }}" alt="Logo" class="logo-img">
                 <h2 style="font-weight:bold; text-align:center
                 ">ระบบจัดการอู่</h2>
