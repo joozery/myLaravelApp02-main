@@ -106,7 +106,7 @@
 
                 <!-- ดูประวัติการเบิกของและดูไฟล์ PDF -->
                 <a href="{{ route('withdraw_history') }}">
-                    <i class="fas fa-file-pdf"></i> ดูประวัติการเบิกและ PDF
+                    <i class="fas fa-file"></i> ดูประวัติการเบิก
                 </a>   
 
                 <!-- ปุ่ม Logout -->

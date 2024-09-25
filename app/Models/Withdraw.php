@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User; // เพิ่มเพื่อเชื่อมต่อกับโมเดล User
 
 class Withdraw extends Model
 {
@@ -16,11 +17,17 @@ class Withdraw extends Model
     protected $fillable = [
         'item',
         'quantity',
+        'withdraw_by',
     ];
 
     // หากมีความสัมพันธ์กับ Model อื่นๆ ก็สามารถกำหนดได้ เช่น ความสัมพันธ์กับ SparePart
     public function sparePart()
     {
         return $this->belongsTo(SparePart::class, 'spare_part_id');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'withdraw_by');
     }
 }
