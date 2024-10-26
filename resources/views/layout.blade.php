@@ -20,6 +20,12 @@
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
+    <!-- Custom CSS App.css -->
+    <link rel="stylesheet" href="{{ asset('css/custom-style.css') }}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css">
+
+
     <!-- Custom CSS -->
     <style>
         body {
@@ -54,7 +60,7 @@
 
         .sidebar a:hover {
             background: linear-gradient(to right, #a4ff7d, #0a8b24);
-            color: white; 
+            color: white;
             text-decoration: none;
             transition: background 0.3s ease;
         }
@@ -84,7 +90,7 @@
     <div class="container-fluid">
         <div class="row">
             <!-- Sidebar -->
-                <nav class="col-md-2 sidebar">
+            <nav class="col-md-2 sidebar">
                 <img src="{{ asset('images/logo.png') }}" alt="Logo" class="logo-img">
                 <h2 style="font-weight:bold; text-align:center
                 ">ระบบจัดการอู่</h2>
@@ -107,7 +113,7 @@
                 <!-- ดูประวัติการเบิกของและดูไฟล์ PDF -->
                 <a href="{{ route('withdraw_history') }}">
                     <i class="fas fa-file"></i> ดูประวัติการเบิก
-                </a>   
+                </a>
 
                 <!-- ปุ่ม Logout -->
                 <form action="{{ route('logout') }}" method="POST" class="mt-4">
@@ -125,41 +131,21 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        // Example data for Chart.js
-        const ctxRevenue = document.getElementById('revenueChart').getContext('2d');
-        const revenueChart = new Chart(ctxRevenue, {
-            type: 'bar',
-            data: {
-                labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-                datasets: [{
-                    label: 'Online Sales',
-                    data: [12000, 19000, 30000, 5000, 20000, 30000, 40000],
-                    backgroundColor: '#36a2eb'
-                }, {
-                    label: 'Offline Sales',
-                    data: [5000, 7000, 20000, 15000, 10000, 20000, 30000],
-                    backgroundColor: '#ff6384'
-                }]
-            },
-        });
+        document.getElementById('sparePartForm').addEventListener('submit', function(event) {
+            const fileInput = document.getElementById('image');
+            const file = fileInput.files[0];
 
-        const ctxSatisfaction = document.getElementById('satisfactionChart').getContext('2d');
-        const satisfactionChart = new Chart(ctxSatisfaction, {
-            type: 'line',
-            data: {
-                labels: ['January', 'February', 'March', 'April', 'May', 'June'],
-                datasets: [{
-                    label: 'Satisfaction Level',
-                    data: [3, 4, 5, 3, 4, 5],
-                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                    borderColor: 'rgba(54, 162, 235, 1)',
-                    fill: true
-                }]
-            },
+            if (file) {
+                const sizeInMB = file.size / 1024 / 1024; // ขนาดไฟล์เป็น MB
+                if (sizeInMB > 2) { // ถ้าไฟล์เกิน 2MB
+                    event.preventDefault(); // หยุดการส่งฟอร์ม
+                    document.getElementById('error-message').textContent = 'รูปภาพต้องมีขนาดไม่เกิน 2MB';
+                    alert('รูปภาพต้องมีขนาดไม่เกิน 2MB');
+                } else {
+                    document.getElementById('error-message').textContent = ''; // เคลียร์ข้อความผิดพลาด
+                }
+            }
         });
     </script>
 </body>

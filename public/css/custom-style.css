@@ -1,0 +1,75 @@
+.rounded-table {
+    border-radius: 15px; /* ปรับค่าตามต้องการ */
+    overflow: hidden; /* เพื่อให้มุมโค้งทำงาน */
+    border: 1px solid;
+}
+
+.rounded-table th,
+.rounded-table td {
+    padding: 12px 8px;
+    border: 1px solid #dee2e6; /* เพื่อให้ border เป็น rounded */
+}
+
+.table th{
+    background-color: #026435;
+    color: white;
+}
+
+.table th,.table td{
+    border: 0;
+    vertical-align: middle !important;
+}
+
+.button-green{
+    background-color: #4CAF51;
+    color: #fff;
+}
+
+.button-green:hover{
+    background-color: #3f9443;
+    color: #fff;
+}
+
+.button-grey{   
+    background-color: #e6e6e6;
+}
+
+.button-grey:hover{   
+    border: 1px solid #e6e6e6;
+    background-color: #cecece;
+}
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-right: 30px; /* เว้นช่องให้ไอคอนแสดง */
+}
+
+
+.custom-select-wrapper {
+    width: 100%;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 2px 0px;
+}
+
+.custom-select-wrapper select {
+    appearance: none;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding-right: 20px; /* ช่องว่างสำหรับไอคอน */
+    font-size: 16px;
+}
+
+.custom-select-wrapper i {
+    position: absolute;
+    right: 10px;
+    font-size: 14px;
+    pointer-events: none; /* ไม่ให้ไอคอนรบกวนการคลิก */
+}
+

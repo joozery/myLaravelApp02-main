@@ -30,6 +30,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/spare-parts', [SparePartController::class, 'index'])->name('spare_parts.index');
     Route::get('/spare-parts/{id}/edit', [SparePartController::class, 'edit'])->name('spare_parts.edit'); // แก้ไขจาก /spare_parts/{id}/edit เป็น /spare-parts/{id}/edit
     Route::put('/spare-parts/{id}', [SparePartController::class, 'update'])->name('spare_parts.update'); // แก้ไขจาก /spare_parts/{id} เป็น /spare-parts/{id}
+    
+
     Route::delete('/spare-parts/{id}', [SparePartController::class, 'destroy'])->name('spare_parts.destroy');
 
     // เส้นทาง homep

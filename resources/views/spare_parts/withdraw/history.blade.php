@@ -2,9 +2,9 @@
 
 @section('content')
 
-<h1>Session ID: {{ session()->getId() }}</h1>
-    <h1>ประวัติการเบิกของ</h1>
-    <table class="table table-bordered">
+<!-- <h1>Session ID: {{ session()->getId() }}</h1> -->
+<h1 class="mb-2 pb-1">ประวัติการเบิกของ</h1>
+    <table class="table text-center table-striped rounded-table shadow-sm">
         <thead>
             <tr>
                 <th>ชื่อสินค้า</th>
@@ -16,15 +16,16 @@
         </thead>
         <tbody>
             @foreach ($withdraws as $withdraw)
-                <tr>
-                    <td>{{ $withdraw->item }}</td>
-                    <td>{{ $withdraw->quantity }}</td>
-                    <td>{{ $withdraw->created_at->format('d/m/Y') }}</td>
-                    <td>{{ $withdraw->user ? $withdraw->user->name : 'ไม่ทราบ' }}</td>
-                    <td></td>
-                    <!-- <td><a href="{{ route('withdraw.pdf', $withdraw->id) }}" class="btn btn-primary">ดาวน์โหลด PDF</a></td> -->
-                </tr>
+            <tr>
+                <td>{{ $withdraw->item }}</td>
+                <td>{{ $withdraw->quantity }}</td>
+                <td>{{ $withdraw->created_at->format('d/m/Y H:i:s') }}</td>
+                <td>{{ $withdraw->user ? $withdraw->user->name : 'ไม่ทราบ' }}</td>
+                <td></td>
+                <!-- <td><a href="{{ route('withdraw.pdf', $withdraw->id) }}" class="btn btn-primary">ดาวน์โหลด PDF</a></td> -->
+            </tr>
             @endforeach
         </tbody>
     </table>
+
 @endsection

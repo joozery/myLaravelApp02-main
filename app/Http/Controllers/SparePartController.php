@@ -27,7 +27,7 @@ class SparePartController extends Controller
             'price' => 'required|numeric',
             'year' => 'required|integer',
             'type_spare' => 'required|string|max:255',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', //limit photo 2mb
         ]);
 
         // จัดการการอัปโหลดไฟล์รูปภาพ (ถ้ามี)
@@ -81,20 +81,26 @@ class SparePartController extends Controller
             'price' => 'required|numeric',
             'year' => 'required|integer',
             'type_spare' => 'required|string|max:255',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif', // เอา max:2048 ออก เพื่อตรวจสอบเอง
         ]);
 
         $sparePart = SparePart::findOrFail($id); // หาอะไหล่ที่ต้องการแก้ไข
 
         // ตรวจสอบและจัดการการอัปโหลดไฟล์รูปภาพใหม่ (ถ้ามี)
         $imagePath = $sparePart->image; // เก็บ path รูปภาพเดิมก่อน
+
         if ($request->hasFile('image')) {
+
+            // เช็คขนาดไฟล์
+            $image = $request->file('image');
+            
             // ลบรูปภาพเก่าถ้ามี
-            if ($sparePart->image) {
-                Storage::disk('public')->delete($sparePart->image);
+            if ($imagePath) {
+                Storage::disk('public')->delete($imagePath);
             }
+
             // อัปโหลดรูปภาพใหม่และบันทึก path ลงในฐานข้อมูล
-            $imagePath = $request->file('image')->store('images/spare_parts', 'public');
+            $imagePath = $image->store('images/spare_parts', 'public');
         }
 
         // อัปเดตข้อมูลในฐานข้อมูล
@@ -113,6 +119,8 @@ class SparePartController extends Controller
         // หลังจากอัปเดตเสร็จแล้ว ให้กลับไปที่หน้า index พร้อมแสดงข้อความสำเร็จ
         return redirect()->route('spare_parts.index')->with('success', 'Spare part updated successfully!');
     }
+
+
 
     // Method สำหรับลบข้อมูลอะไหล่
     public function destroy($id)
