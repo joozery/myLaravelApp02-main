@@ -57,8 +57,11 @@ class SparePartController extends Controller
     // Method สำหรับแสดงรายการอะไหล่ทั้งหมด
     public function index()
     {
-        $spareParts = SparePart::all(); // ดึงข้อมูลอะไหล่ทั้งหมดจากฐานข้อมูล
-        return view('spare_parts.index', compact('spareParts')); // ส่งข้อมูลไปแสดงใน view
+        // $spareParts = SparePart::all(); // ดึงข้อมูลอะไหล่ทั้งหมดจากฐานข้อมูล
+        // return view('spare_parts.index', compact('spareParts')); // ส่งข้อมูลไปแสดงใน view
+
+        $spareParts = SparePart::orderBy('created_at', 'desc')->paginate(10); // เรียงข้อมูลจากล่าสุดก่อน
+        return view('spare_parts.index', compact('spareParts'));
     }
 
     // Method สำหรับแก้ไขข้อมูลอะไหล่

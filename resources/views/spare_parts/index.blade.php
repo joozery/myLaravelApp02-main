@@ -65,8 +65,13 @@
         </tbody>
     </table>
 
-    <div class="mb-2">
-        <a href="{{ url('/home') }}" role="button" class="btn btn-danger">ย้อนกลับ</a>
+    <!-- Pagination Links -->
+    <div class="d-flex justify-content-center mt-3">
+        {{ $spareParts->links('pagination::bootstrap-4') }}
     </div>
+
+    <!-- <div class="mb-2">
+        <a href="{{ url('/home') }}" role="button" class="btn btn-danger">ย้อนกลับ</a>
+    </div> -->
 </div>
 @endsection
