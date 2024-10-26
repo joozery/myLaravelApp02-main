@@ -21,9 +21,15 @@ class WithdrawController extends Controller
     }
 
     // Method สำหรับแสดงประวัติการเบิกของ
+
+    // public function index()
+    // {
+    //     $withdraws = Withdraw::all();
+    //     return view('spare_parts.withdraw.history', compact('withdraws'));
+    // }
     public function index()
     {
-        $withdraws = Withdraw::all();
+        $withdraws = Withdraw::orderBy('created_at', 'desc')->paginate(10); // เรียงข้อมูลจากล่าสุดก่อน
         return view('spare_parts.withdraw.history', compact('withdraws'));
     }
 
@@ -46,7 +52,7 @@ class WithdrawController extends Controller
 
         // ตรวจสอบว่าสินค้ามีเพียงพอหรือไม่
         if ($sparePart->amount >= $request->quantity) {
-            
+
             // ลดจำนวนสินค้าในคลัง
             $sparePart->amount -= $request->quantity;
             $sparePart->save(); // อัปเดตข้อมูลในฐานข้อมูล

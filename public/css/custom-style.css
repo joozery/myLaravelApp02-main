@@ -73,3 +73,42 @@ select {
     pointer-events: none; /* ไม่ให้ไอคอนรบกวนการคลิก */
 }
 
+/*pagination*/
+
+/* เปลี่ยนสีของปุ่ม Pagination */
+.pagination .page-item.active .page-link {
+    background-color: green !important; /* สีเขียวสำหรับหน้าปัจจุบัน */
+    border: 1px solid green;
+    color: white !important; /* สีข้อความเป็นสีขาว */
+}
+
+/* ปรับสีของปุ่มเมื่อ hover */
+/* .pagination .page-item .page-link:hover {
+    background-color: lightgreen !important; 
+    color: white !important;
+} */
+
+/* สีของปุ่มอื่น ๆ */
+.pagination .page-item .page-link {
+    color: black !important; /* สีของข้อความปุ่ม */
+    border: 1px solid #ddd;
+}
+
+/* สีของปุ่มลูกศร */
+.pagination .page-item .page-link {
+    color: #333 !important; /* ปุ่มลูกศร */
+}
+
+/* เพิ่มระยะห่าง */
+.pagination .page-link {
+    padding: 0.5rem 0.75rem; /* ปรับระยะห่างภายในปุ่ม */
+}
+
+/* เอา focus ออกจากปุ่ม pagination */
+.pagination .page-link:focus {
+    outline: none !important; /* เอาเส้นขอบออก */
+    box-shadow: none !important; /* เอาเงาออก */
+}
+
+
+
